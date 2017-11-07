@@ -18,7 +18,7 @@ var todoFunctions = {
   //cloneArrayOfObjects will create a copy of the todos array
   //changes to the new array don't affect the original
   cloneArrayOfObjects: function(todos) {
-    return todos.map(function(todo){
+    return todos.map(function(todo) {
       return JSON.parse(JSON.stringify(todo));
     });
   },
@@ -26,21 +26,40 @@ var todoFunctions = {
   addTodo: function(todos, newTodo) {
     var todos_list = todoFunctions.cloneArrayOfObjects(todos); //copy of todos_list
     var newID = todoFunctions.generateId();
-    var task = {'id' : newID,
-                'description' : newTodo,
-                'done' : false};
+    var task = [{
+      'id': newID,
+      'description': newTodo,
+      'done': false
+    }];
     return todos_list.concat(task);
-    // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-    // returns a new array, it should contain todos with the newTodo added to the end.
-    // add an id to the newTodo. You can use the generateId function to create an id.
-    // hint: array.concat
   },
+
   deleteTodo: function(todos, idToDelete) {
-    // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-    // return a new array, this should not contain any todo with an id of idToDelete
-    // hint: array.filter
+    var todos_list = todoFunctions.cloneArrayOfObjects(todos); //copy of todos_list
+    //var ID = todoFunctions.generateId();
+    console.log(todos_list);
+    todos_list = todos_list.filter(function(task) {
+      if (task['id'] != idToDelete) {
+        return task;
+      }
+    });
+    console.log(todos_list);
+    return todos_list;
   },
+
   markTodo: function(todos, idToMark) {
+    var todos_list = todoFunctions.cloneArrayOfObjects(todos);
+    console.log(todos_list);
+    todos_list = todos_list.map(function(task) {
+      if (task['id'] == idToMark) {
+        task.done = true;
+        return task;
+      } else {
+        return task;
+      }
+    });
+    console.log(todos_list);
+    return todos_list;
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
