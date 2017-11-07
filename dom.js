@@ -16,8 +16,14 @@
   var createTodoNode = function(todo) {
     var todoNode = document.createElement('li');
     // you will need to use addEventListener
-
+    var descSpan = document.createElement('span');
+    descSpan.innerHTML=todo['description'];
+    todoNode.appendChild(descSpan);
     // add span holding description
+    console.log(todo);
+    console.log(todo['description']);
+
+
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
@@ -41,6 +47,13 @@
       // what does event.preventDefault do?
       // what is inside event.target?
 
+      var submit = document.getElementById('submit');
+      submit.addEventListener('click', function(){
+        console.log(addTodoForm.value);
+        console.log(getElementById('desc').value)
+        var description = addTodoForm.value;
+      });
+      
       var description = '?'; // event.target ....
 
       // hint: todoFunctions.addTodo
