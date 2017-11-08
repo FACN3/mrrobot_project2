@@ -59,6 +59,13 @@ test('Mark test', function(t){
   var actual = markTodo([{'id' : 1,
               'description' : 'make coffee',
               'done' : false}], 1);
+  var expected1 = [{'id' : 1,
+                          'description' : 'make coffee',
+                          'done' : false}];
+  var actual1 = markTodo([{'id' : 1,
+                          'description' : 'make coffee',
+                          'done' : true}], 1);
 t.deepEqual(actual, expected, 'The task has not been marked:');
+t.deepEqual(actual1, expected1, 'The task has not been marked:');
 t.end();
 });

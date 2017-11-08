@@ -35,7 +35,24 @@
     todoNode.appendChild(deleteButtonNode);
     console.log('todoNode after append delete button' + todoNode.innerHTML);
     // add markTodo button
-    
+
+    var checkboxNode = document.createElement('input');
+    console.log('todo.id' + todo.id);
+    if (todo.done == true) {
+      checkboxNode.setAttribute('checked', true);
+    }
+    //var newID = todo.id;
+    checkboxNode.type = 'checkbox';
+    checkboxNode.id = todo.id;
+    todoNode.appendChild(checkboxNode);
+    checkboxNode.addEventListener('click', function(event) {
+      //var newState = todoFunctions.markTodo(state, )
+      console.log(checkboxNode.id);
+      var newState = todoFunctions.markTodo(state, checkboxNode.id);
+      console.log(newState);
+      update(newState);
+      //console.log(state);
+    });
     // add classes for css
 
     return todoNode;
