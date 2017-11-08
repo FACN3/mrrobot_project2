@@ -7,9 +7,9 @@
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [
-    { id: -3, description: 'first todo' },
-    { id: -2, description: 'second todo' },
-    { id: -1, description: 'third todo' },
+    { id: -3, description: 'first todo', 'done': false },
+    { id: -2, description: 'second todo', 'done': false },
+    { id: -1, description: 'third todo', 'done' : false },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -31,10 +31,11 @@
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
+    console.log('todoNode before append delete button' + todoNode.innerHTML);
     todoNode.appendChild(deleteButtonNode);
-
+    console.log('todoNode after append delete button' + todoNode.innerHTML);
     // add markTodo button
-
+    
     // add classes for css
 
     return todoNode;
@@ -42,22 +43,19 @@
 
   // bind create todo form
   if (addTodoForm) {
+    //addTodoForm.addEventListener('submit', function(event) {}
     addTodoForm.addEventListener('submit', function(event) {
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
       // what is inside event.target?
-
-      var submit = document.getElementById('submit');
-      submit.addEventListener('click', function(){
-        console.log(addTodoForm.value);
-        console.log(getElementById('desc').value)
-        var description = addTodoForm.value;
-      });
-      
-      var description = '?'; // event.target ....
-
+      event.preventDefault();
+      var description = document.getElementById('desc').value;
+      document.getElementById('desc').value = ''; //clears the form
+      console.log(desc);
+      var newState = todoFunctions.addTodo(state, description);
+      console.log(state);
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      //var newState = []; // ?? change this!
       update(newState);
     });
   }
