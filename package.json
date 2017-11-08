@@ -1,0 +1,23 @@
+{
+  "name": "mrrobot_project2",
+  "version": "1.0.0",
+  "description": "week 2 project",
+  "main": "dom.js",
+  "scripts": {
+    "test": "tape ./test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACN3/mrrobot_project2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACN3/mrrobot_project2/issues"
+  },
+  "homepage": "https://github.com/FACN3/mrrobot_project2#readme",
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}
