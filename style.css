@@ -1,1 +1,84 @@
 
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+body{
+background-color: rgb(0,191,255) ;
+font-size: 25px;
+font-family: 'Arvo', serif;
+}
+
+h1{
+  text-align: center;
+}
+
+.header h1 {
+  color:white ;
+}
+
+ul{
+
+  list-style-type: none;
+  padding: 0px;
+  list-style-position: inside;
+  word-wrap: break-word;
+}
+
+ul button {
+  margin-left: 10px;
+}
+
+
+li{
+width:100%;
+display: inline-block;
+
+}
+
+.frame{
+width: 100vw;
+height: 100vh;
+text-align: center;
+
+}
+
+.frametext{
+margin-left:  20%;
+margin-right: 20%;
+text-align: left;
+background-color: rgb(0,191,255);
+color: black;
+}
+
+#add-todo #submit {
+  margin-top: 10px;
+  font-family: 'Arvo', serif;
+}
+
+.fa-trash{
+ font-size: 30px;
+}
+
+.fa{
+  font-size: 20px;
+}
+
+@media screen and (min-width: 500px) {
+  .frametext{
+  margin-left:  20%;
+  margin-right: 20%;
+  text-align: center;
+  background-color: rgb(0,191,255);
+  color: black;
+  }
+
+  li {
+    padding-top: 15px;
+  }
+
+  #add-todo #submit {
+    font-family: 'Arvo', serif;
+  }
+
+
+
+}

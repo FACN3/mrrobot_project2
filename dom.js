@@ -7,9 +7,9 @@
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [
-    { id: -3, description: 'first todo', 'done': false },
-    { id: -2, description: 'second todo', 'done': false },
-    { id: -1, description: 'third todo', 'done' : false },
+    { id: -3, description: 'شراء بيض حليب و خبز', 'done': false },
+    { id: -2, description: 'ذهاب الى العمل', 'done': false },
+    { id: -1, description: 'حضور عرس علي بابا', 'done' : false },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -17,8 +17,8 @@
     var todoNode = document.createElement('li');
     // you will need to use addEventListener
     var descSpan = document.createElement('span');
+
     descSpan.innerHTML=todo['description'];
-    todoNode.appendChild(descSpan);
     // add span holding description
     console.log(todo);
     console.log(todo['description']);
@@ -27,12 +27,15 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
+    var deleteIcon = document.createElement('i');
+    deleteIcon.className = "fa fa-trash";
+    deleteButtonNode.appendChild(deleteIcon);
     deleteButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
     console.log('todoNode before append delete button' + todoNode.innerHTML);
-    todoNode.appendChild(deleteButtonNode);
+
     console.log('todoNode after append delete button' + todoNode.innerHTML);
     // add markTodo button
 
@@ -44,7 +47,7 @@
     //var newID = todo.id;
     checkboxNode.type = 'checkbox';
     checkboxNode.id = todo.id;
-    todoNode.appendChild(checkboxNode);
+
     checkboxNode.addEventListener('click', function(event) {
       //var newState = todoFunctions.markTodo(state, )
       console.log(checkboxNode.id);
@@ -54,6 +57,13 @@
       //console.log(state);
     });
     // add classes for css
+
+    //The order that the todo list generates
+    todoNode.appendChild(checkboxNode);
+    todoNode.appendChild(descSpan);
+    todoNode.contentTee
+    todoNode.appendChild(deleteButtonNode);
+
 
     return todoNode;
   };
