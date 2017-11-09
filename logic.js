@@ -37,34 +37,29 @@ var todoFunctions = {
   deleteTodo: function(todos, idToDelete) {
     var todos_list = todoFunctions.cloneArrayOfObjects(todos); //copy of todos_list
     //var ID = todoFunctions.generateId();
-    console.log(todos_list);
     todos_list = todos_list.filter(function(task) {
       if (task['id'] != idToDelete) {
         return task;
       }
     });
-    console.log(todos_list);
     return todos_list;
   },
 
   markTodo: function(todos, idToMark) {
     var todos_list = todoFunctions.cloneArrayOfObjects(todos);
-    // console.log(todos_list);
     todos_list = todos_list.map(function(task) {
       if (task['id'] == idToMark) {
-        // console.log('we are here');
         if (task.done == false) {
           task.done = true;
-          // console.log('if = false' + task);
-        return task;}
-       else {task.done = false;
-       return task;}
-      }
-      else {
+          return task;
+        } else {
+          task.done = false;
+          return task;
+        }
+      } else {
         return task;
       }
     });
-    // console.log(todos_list);
     return todos_list;
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
