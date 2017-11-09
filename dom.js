@@ -5,7 +5,6 @@
   // This is the dom node where we will keep our todo
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
-
   var state = [{
       id: -3,
       description: 'شراء بيض حليب و خبز',
@@ -26,13 +25,9 @@
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     var todoNode = document.createElement('li');
-
     var descSpan = document.createElement('span');
-
     descSpan.innerHTML = todo['description'];
 
-    console.log(todo);
-    console.log(todo['description']);
 
 
 
@@ -45,25 +40,18 @@
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
-    console.log('todoNode before append delete button' + todoNode.innerHTML);
 
-    console.log('todoNode after append delete button' + todoNode.innerHTML);
     //markTodo button
 
     var checkboxNode = document.createElement('input');
-    console.log('todo.id' + todo.id);
     if (todo.done == true) {
       checkboxNode.setAttribute('checked', true);
     }
     //var newID = todo.id;
     checkboxNode.type = 'checkbox';
     checkboxNode.id = todo.id;
-
     checkboxNode.addEventListener('click', function(event) {
-
-      console.log(checkboxNode.id);
       var newState = todoFunctions.markTodo(state, checkboxNode.id);
-      console.log(newState);
       update(newState);
 
     });
@@ -83,14 +71,10 @@
   if (addTodoForm) {
 
     addTodoForm.addEventListener('submit', function(event) {
-
       event.preventDefault();
       var description = document.getElementById('desc').value;
       document.getElementById('desc').value = ''; //clears the form
-      console.log(desc);
       var newState = todoFunctions.addTodo(state, description);
-      console.log(state);
-
       update(newState);
     });
   }
