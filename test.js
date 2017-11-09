@@ -31,8 +31,8 @@ test('Example test', function(t) {
     'done': false
   }], 'make tea');
   //t.equal(actual, expected);
-  t.deepEqual(actual, expected, 'The task should look like:');
-  t.deepEqual(actual1, expected1, 'The task should look like:');
+  t.deepEqual(actual, expected, 'Expected make coffee to have an id and done');
+  t.deepEqual(actual1, expected1, 'Expected make tea added to the todo list');
   t.end();
 });
 
@@ -70,7 +70,8 @@ test('Delete test', function(t) {
       'done': true
     }
   ], 2);
-  t.deepEqual(actual, expected, 'The task has not been deleted:');
+  t.deepEqual(actual, expected, 'Expeceted make tea removed from the todolist');
+  t.deepEqual(actual1, expected1, 'Expected make chocolate removed from the todolist');
   t.end();
 });
 
@@ -95,7 +96,7 @@ test('Mark test', function(t) {
     'description': 'make coffee',
     'done': true
   }], 1);
-  t.deepEqual(actual, expected, 'The task has not been marked:');
-  t.deepEqual(actual1, expected1, 'The task has not been marked:');
+  t.deepEqual(actual, expected, 'Expected the task to be marked');
+  t.deepEqual(actual1, expected1, 'Expected the task to be marked');
   t.end();
 });
