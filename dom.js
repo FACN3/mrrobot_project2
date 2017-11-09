@@ -60,7 +60,7 @@
     //The order that the todo list generates
     todoNode.appendChild(checkboxNode);
     todoNode.appendChild(descSpan);
-    todoNode.contentTee
+    // todoNode.contentTee
     todoNode.appendChild(deleteButtonNode);
 
 
@@ -73,11 +73,14 @@
     addTodoForm.addEventListener('submit', function(event) {
       event.preventDefault();
       var description = document.getElementById('desc').value;
+      if(description){
       document.getElementById('desc').value = ''; //clears the form
       var newState = todoFunctions.addTodo(state, description);
       update(newState);
-    });
-  }
+      }
+      else {window.alert("Please write task.")}
+      });
+    }
 
   // you should not need to change this function
   var update = function(newState) {
