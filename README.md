@@ -12,3 +12,19 @@
 - We worked on one laptop and ping-pong coded, so we could go over the codes together at the same time.
 - Used TDD to create the logic needed.
 - Put minimal time on styling so we could invest more time on functionality.
+
+## Test instruction
+
+Clone the repository
+```
+git clone <link to repo>
+```
+Install packages
+```
+npm install
+```
+Run tests
+```
+npm run test
+```
+Look at our amazing test coverage :100:
